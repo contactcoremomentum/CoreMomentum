@@ -109,7 +109,7 @@ namespace CoreMomentum.Web.Views.Controllers
         {
             await HttpContext.SignOutAsync();
             _tokenProvider.ClearToken();
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("LogoutIndex", "Home");
         }
 
 

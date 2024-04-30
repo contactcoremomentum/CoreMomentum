@@ -30,6 +30,11 @@ namespace CoreMomentum.Web.Views.Controllers
             return View();
         }
 
+        public IActionResult LogoutIndex()
+        {
+            return View();
+        }
+
         public IActionResult Privacy()
         {
             return View();
