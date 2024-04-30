@@ -1,0 +1,104 @@
+@model StudentVM
+
+<div class="card shadow border-0 my-4">
+    <div class="card-header bg-secondary bg-gradient ml-0 py-1">
+        <div class="row">
+            <div class="col-12 text-center">
+                <h3 class="text-white py-2"> @(Model.Student.Id != 0 ? "Update" : "Create") Student</h3>
+            </div>
+        </div>
+    </div>
+    <div class="card-body p-4">
+        <form method="post" class="row" enctype="multipart/form-data">
+            <input asp-for="Student.Id" hidden />
+            <div class="row">
+                <div class="col-12">
+                    <div class="border p-3">
+                        <div class="form-floating py-1 col-12">
+                            <input asp-for="Student.StudentCode" class="form-control border-0 shadow" readonly="readonly" />
+                            <label asp-for="Student.StudentCode" class="ms-2"></label>
+                            <span asp-validation-for="Student.StudentCode" class="text-danger"></span>
+                        </div>
+                        <div class="form-floating py-2 col-12">
+                            <input asp-for="Student.email" class="form-control border-0 shadow" />
+                            <label asp-for="Student.email" class="ms-2"></label>
+                            <span asp-validation-for="Student.email" class="text-danger"></span>
+                        </div>
+                        <div class="form-floating py-2 col-12">
+                            <input asp-for="Student.FirstName" class="form-control border-0 shadow" />
+                            <label asp-for="Student.FirstName" class="ms-2"></label>
+                            <span asp-validation-for="Student.FirstName" class="text-danger"></span>
+                        </div>
+                        <div class="form-floating py-2 col-12">
+                            <input asp-for="Student.LastName" class="form-control border-0 shadow" />
+                            <label asp-for="Student.LastName" class="ms-2"></label>
+                            <span asp-validation-for="Student.LastName" class="text-danger"></span>
+                        </div>
+                        <div class="form-floating py-2 col-12">
+                            <input asp-for="Student.BirthDate" asp-format="{0:dd-MM-yyyy}" class="form-control border-0 shadow" />
+                            <label asp-for="Student.BirthDate" class="ms-2"></label>
+                            <span asp-validation-for="Student.BirthDate" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-floating py-2 col-12">
+                            <input asp-for="Student.BirthPlace" class="form-control border-0 shadow" />
+                            <label asp-for="Student.BirthPlace" class="ms-2"></label>
+                            <span asp-validation-for="Student.BirthPlace" class="text-danger"></span>
+                        </div>
+                        <div class="form-floating py-2 col-12">
+                            <input asp-for="Student.HouseNumber" class="form-control border-0 shadow" />
+                            <label asp-for="Student.HouseNumber" class="ms-2"></label>
+                            <span asp-validation-for="Student.HouseNumber" class="text-danger"></span>
+                        </div>
+                        <div class="form-floating py-2 col-12">
+                            <input asp-for="Student.Street" class="form-control border-0 shadow" />
+                            <label asp-for="Student.Street" class="ms-2"></label>
+                            <span asp-validation-for="Student.Street" class="text-danger"></span>
+                        </div>
+                        <div class="form-floating py-2 col-12">
+                            <input asp-for="Student.City" class="form-control border-0 shadow" />
+                            <label asp-for="Student.City" class="ms-2"></label>
+                            <span asp-validation-for="Student.City" class="text-danger"></span>
+                        </div>
+                        <div class="form-floating py-2 col-12">
+                            <input asp-for="Student.PostalCode" class="form-control border-0 shadow" />
+                            <label asp-for="Student.PostalCode" class="ms-2"></label>
+                            <span asp-validation-for="Student.PostalCode" class="text-danger"></span>
+                        </div>
+                        <div class="form-floating py-2 col-12">
+                            <input asp-for="Student.PassportNumber" class="form-control border-0 shadow" />
+                            <label asp-for="Student.PassportNumber" class="ms-2"></label>
+                            <span asp-validation-for="Student.PassportNumber" class="text-danger"></span>
+                        </div>
+                        <div class="form-floating py-2 col-12">
+                            <input asp-for="Student.PersonalId" class="form-control border-0 shadow" />
+                            <label asp-for="Student.PersonalId" class="ms-2"></label>
+                            <span asp-validation-for="Student.PersonalId" class="text-danger"></span>
+                        </div>
+                        <div class="row pt-2">
+                            <div class="col-6 col-md-3">
+                                @if (Model.Student.Id != 0)
+                                {
+                                    <button type="submit" class="btn btn-primary form-control">Update</button>
+                                }
+                                else
+                                {
+                                    <button type="submit" class="btn btn-primary form-control">Create</button>
+                                }
+                            </div>
+                            <div class="col-6 col-md-3">
+                                <a asp-controller="Student" asp-action="StudentIndex" class="btn btn-outline-primary border  form-control">
+                                    Back to List
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
